@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulte pontos de ônibus de São Paulo e confira as próximas chegadas com informações da SPTrans.">
+  <meta name="theme-color" content="#102b37">
+  <title>Meu Ponto SP | Próximos ônibus</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <a class="marca" href="/" aria-label="Meu Ponto SP - Página inicial">
+        <span class="marca-icone" aria-hidden="true">🚌</span>
+        <span>meu<span class="marca-destaque">ponto</span><small>SP</small></span>
+      </a>
+      <span class="topo-etiqueta"><span class="bolinha-verde" aria-hidden="true"></span> Mobilidade em São Paulo</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="apresentacao">
+      <div class="container">
+        <div class="apresentacao-conteudo">
+          <p class="sobretitulo">SEU ÔNIBUS, SEM ADIVINHAÇÃO</p>
+          <h1>Saiba quando seu <span>ônibus chega.</span></h1>
+          <p class="apresentacao-descricao">Encontre um ponto de ônibus e consulte as próximas chegadas com dados da SPTrans.</p>
+        </div>
+
+        <form id="formBusca" class="busca" autocomplete="off">
+          <label for="campoBusca">Qual ponto você procura?</label>
+          <div class="busca-linha">
+            <div class="campo-com-icone">
+              <span aria-hidden="true" class="icone-busca">⌕</span>
+              <input id="campoBusca" type="search" placeholder="Ex.: Paulista, Afonso Braz, Consolação" minlength="2" maxlength="80" required>
+            </div>
+            <button id="botaoBuscar" type="submit" class="botao botao-principal">Buscar pontos <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="dica">Pesquise pelo nome do ponto ou por parte do endereço.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="container area-principal">
+      <section class="area-favoritos" aria-labelledby="tituloFavoritos">
+        <div class="cabecalho-secao">
+          <div>
+            <p class="sobretitulo escuro">ACESSO RÁPIDO</p>
+            <h2 id="tituloFavoritos">Meus pontos favoritos</h2>
+          </div>
+          <span class="tag-clara">Salvos neste navegador</span>
+        </div>
+        <div id="listaFavoritos" class="favoritos" aria-live="polite">
+          <p class="mensagem-vazia">Seus pontos favoritos vão aparecer aqui.</p>
+        </div>
+      </section>
+
+      <div class="grade-conteudo">
+        <section class="painel painel-resultados" aria-labelledby="tituloResultados">
+          <div class="painel-cabecalho">
+            <div>
+              <p class="sobretitulo escuro">ESCOLHA UM PONTO</p>
+              <h2 id="tituloResultados">Resultados da busca</h2>
+            </div>
+            <span id="contadorResultados" class="contador" hidden></span>
+          </div>
+          <p id="statusBusca" class="texto-status" role="status" aria-live="polite">Digite o nome de um ponto acima para começar.</p>
+          <div id="listaParadas" class="lista-paradas"></div>
+        </section>
+
+        <section class="painel painel-previsao" aria-labelledby="tituloPrevisao">
+          <div class="painel-cabecalho painel-cabecalho-previsao">
+            <div>
+              <p class="sobretitulo escuro">DADOS DA SPTRANS</p>
+              <h2 id="tituloPrevisao">Próximos ônibus</h2>
+            </div>
+            <button id="botaoAtualizar" class="botao botao-secundario" type="button" disabled>↻ Atualizar</button>
+          </div>
+
+          <div id="dadosPonto" class="dados-ponto" hidden>
+            <p id="nomePonto" class="nome-ponto"></p>
+            <p id="enderecoPonto" class="endereco-ponto"></p>
+            <p id="horarioConsulta" class="horario-consulta"></p>
+            <a id="linkMapa" href="#" target="_blank" rel="noopener noreferrer" class="link-mapa" hidden>Ver ponto no mapa <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <p id="statusPrevisao" class="texto-status" role="status" aria-live="polite">Selecione um ponto na lista ou nos favoritos para ver as previsões.</p>
+          <div id="listaPrevisoes" class="lista-previsoes"></div>
+          <label class="atualizacao-automatica">
+            <input id="atualizarAutomaticamente" type="checkbox">
+            Atualizar automaticamente a cada 60 segundos
+          </label>
+          <p class="aviso-horarios">Os horários são previsões informadas pela SPTrans e podem mudar com o trânsito.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <p><strong>Meu Ponto SP</strong> · Projeto acadêmico de Application Development</p>
+      <p>Fonte de dados: <a href="https://www.sptrans.com.br/desenvolvedores/" target="_blank" rel="noopener noreferrer">SPTrans — API Olho Vivo</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Participante: Lucas Mota - RM566670
+
+Modalidade: Individual
+
+Responsável por todo o desenvolvimento do projeto: HTML, CSS, JavaScript, integração com a API, testes e publicação.
